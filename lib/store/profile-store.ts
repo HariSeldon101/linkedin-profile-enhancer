@@ -2,15 +2,19 @@ import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import type { LinkedInProfile, Job, ProfileAnalysis } from '@/lib/types'
 
+interface ExtendedProfile extends LinkedInProfile {
+  analysis?: ProfileAnalysis
+}
+
 interface ProfileState {
-  currentProfile: LinkedInProfile | null
+  currentProfile: ExtendedProfile | null
   analysis: ProfileAnalysis | null
   jobs: Job[]
   selectedJob: Job | null
   isLoading: boolean
   error: string | null
   
-  setProfile: (profile: LinkedInProfile) => void
+  setProfile: (profile: ExtendedProfile) => void
   setAnalysis: (analysis: ProfileAnalysis) => void
   addJob: (job: Job) => void
   selectJob: (job: Job) => void
