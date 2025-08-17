@@ -113,7 +113,7 @@ export default function CareersPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold mb-4">Open Positions</h2>
-            <p className="text-gray-400">We're always looking for talented people to join our mission</p>
+            <p className="text-gray-400">We&apos;re always looking for talented people to join our mission</p>
           </motion.div>
 
           <div className="space-y-6">

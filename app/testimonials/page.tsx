@@ -111,7 +111,7 @@ export default function TestimonialsPage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
-              Join thousands of professionals who've transformed their careers with ProfileBoost
+              Join thousands of professionals who&apos;ve transformed their careers with ProfileBoost
             </p>
           </motion.div>
         </div>
@@ -146,7 +146,7 @@ export default function TestimonialsPage() {
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-300 italic">"{testimonial.content}"</p>
+                <p className="text-gray-300 italic">&ldquo;{testimonial.content}&rdquo;</p>
               </motion.div>
             ))}
           </div>

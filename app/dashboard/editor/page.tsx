@@ -9,8 +9,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { 
@@ -33,7 +31,6 @@ import {
   FileText
 } from "lucide-react"
 import { useProfileStore } from "@/lib/store/profile-store"
-import { motion } from "framer-motion"
 
 // Editor toolbar component
 function EditorToolbar({ editor }: { editor: ReturnType<typeof useEditor> }) {

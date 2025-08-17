@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { AnimatedBackground } from "@/components/animated-background"
 import { 
   ArrowRight, 
@@ -87,8 +86,6 @@ const stats = [
 export default function Home() {
   const [mounted, setMounted] = useState(false)
   const { scrollY } = useScroll()
-  const y1 = useTransform(scrollY, [0, 300], [0, 50])
-  const y2 = useTransform(scrollY, [0, 300], [0, -50])
   const opacity = useTransform(scrollY, [0, 300], [1, 0.3])
 
   useEffect(() => {
@@ -378,7 +375,7 @@ export default function Home() {
               Success Stories
             </h2>
             <p className="text-lg text-gray-400">
-              Join thousands of professionals who've transformed their careers
+              Join thousands of professionals who&apos;ve transformed their careers
             </p>
           </motion.div>
 
@@ -397,7 +394,7 @@ export default function Home() {
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-300 mb-4 italic">"{testimonial.content}"</p>
+                <p className="text-gray-300 mb-4 italic">&ldquo;{testimonial.content}&rdquo;</p>
                 <div>
                   <div className="font-semibold">{testimonial.name}</div>
                   <div className="text-sm text-gray-400">{testimonial.role}</div>
@@ -421,7 +418,7 @@ export default function Home() {
               Simple Pricing
             </h2>
             <p className="text-lg text-gray-400">
-              Start free, upgrade when you're ready
+              Start free, upgrade when you&apos;re ready
             </p>
           </motion.div>
 
@@ -550,7 +547,7 @@ export default function Home() {
               Ready to Transform Your Career?
             </h2>
             <p className="text-xl mb-8 text-gray-300">
-              Join thousands of professionals who've already optimized their profiles
+              Join thousands of professionals who&apos;ve already optimized their profiles
             </p>
             <Link href="/auth/signup">
               <Button 

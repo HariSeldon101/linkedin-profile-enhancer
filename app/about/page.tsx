@@ -88,7 +88,7 @@ export default function AboutPage() {
             <p className="text-gray-300 text-lg leading-relaxed">
               ProfileBoost was founded with a simple yet powerful mission: to democratize career opportunities by helping 
               professionals present their best selves online. We leverage cutting-edge AI technology to analyze, optimize, 
-              and enhance LinkedIn profiles, ensuring that talent doesn't go unnoticed in today's competitive job market.
+              and enhance LinkedIn profiles, ensuring that talent doesn&apos;t go unnoticed in today&apos;s competitive job market.
             </p>
           </motion.div>
 
@@ -137,8 +137,8 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold">Our Team</h2>
             </div>
             <p className="text-gray-300 text-lg leading-relaxed">
-              We're a diverse team of engineers, designers, and career experts passionate about helping people succeed. 
-              Our team includes former recruiters from top tech companies, AI researchers, and professionals who've 
+              We&apos;re a diverse team of engineers, designers, and career experts passionate about helping people succeed. 
+              Our team includes former recruiters from top tech companies, AI researchers, and professionals who&apos;ve 
               experienced firsthand the challenges of job searching in the digital age.
             </p>
           </motion.div>
