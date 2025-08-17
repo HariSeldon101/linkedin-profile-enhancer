@@ -393,7 +393,7 @@ export default function ProfileEditorPage() {
                     Add Experience
                   </Button>
                 </div>
-                {profileData.experience.map((exp: Record<string, unknown>, index: number) => (
+                {profileData.experience.map((exp, index) => (
                   <Card key={index}>
                     <CardHeader>
                       <CardTitle className="text-base">{exp.title}</CardTitle>
