@@ -326,11 +326,11 @@ export default function ProfileEditorPage() {
                     className="p-4 min-h-[100px] prose prose-sm max-w-none"
                   />
                 </div>
-                {currentProfile?.analysis?.suggestions?.headline && (
+                {currentProfile?.analysis?.suggestions && currentProfile.analysis.suggestions.length > 0 && (
                   <Alert>
                     <Sparkles className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>AI Suggestion:</strong> {currentProfile.analysis.suggestions.headline[0]}
+                      <strong>AI Suggestion:</strong> {currentProfile.analysis.suggestions[0].message}
                     </AlertDescription>
                   </Alert>
                 )}
@@ -368,11 +368,11 @@ export default function ProfileEditorPage() {
                     className="p-4 min-h-[300px] prose prose-sm max-w-none"
                   />
                 </div>
-                {currentProfile?.analysis?.suggestions?.summary && (
+                {currentProfile?.analysis?.suggestions && currentProfile.analysis.suggestions.find(s => s.section === 'summary') && (
                   <Alert>
                     <Sparkles className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>AI Suggestion:</strong> {currentProfile.analysis.suggestions.summary[0]}
+                      <strong>AI Suggestion:</strong> {currentProfile.analysis.suggestions.find(s => s.section === 'summary')?.message}
                     </AlertDescription>
                   </Alert>
                 )}
@@ -444,11 +444,11 @@ export default function ProfileEditorPage() {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {currentProfile?.analysis?.missingKeywords && (
+            {currentProfile?.analysis?.keywords?.recommended && (
               <div>
                 <p className="text-sm font-medium mb-2">Recommended Keywords:</p>
                 <div className="flex flex-wrap gap-2">
-                  {currentProfile.analysis.missingKeywords.map((keyword: string, i: number) => (
+                  {currentProfile.analysis.keywords.recommended.map((keyword: string, i: number) => (
                     <Badge key={i} variant="outline">
                       {keyword}
                     </Badge>
@@ -456,10 +456,10 @@ export default function ProfileEditorPage() {
                 </div>
               </div>
             )}
-            {currentProfile?.analysis?.industryInsights && (
+            {currentProfile?.analysis && (
               <Alert>
                 <AlertDescription>
-                  {currentProfile.analysis.industryInsights}
+                  Optimize your profile by including relevant keywords and quantifiable achievements to stand out to recruiters.
                 </AlertDescription>
               </Alert>
             )}
