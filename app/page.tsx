@@ -5,7 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, CheckCircle, Linkedin, Zap, Target, TrendingUp, Users, Brain, BarChart3 } from "lucide-react"
+import { ArrowRight, CheckCircle, Linkedin, Zap, Target, TrendingUp, Users, Brain, BarChart3, Info, FileText, Clipboard, Globe } from "lucide-react"
 
 const features = [
   {
@@ -190,7 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works - Updated */}
       <section className="py-20 px-4 bg-muted/50">
         <div className="container mx-auto max-w-6xl">
           <motion.div
@@ -203,8 +203,53 @@ export default function Home() {
               How It Works
             </h2>
             <p className="text-lg text-muted-foreground">
-              Three simple steps to transform your profile
+              Multiple ways to import and optimize your LinkedIn profile
             </p>
+          </motion.div>
+
+          {/* Import Methods Alert */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <Card className="border-blue-200 bg-blue-50/50 dark:bg-blue-950/20">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Info className="mr-2 h-5 w-5 text-blue-600" />
+                  LinkedIn API Alternative Methods
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">
+                  Due to LinkedIn&apos;s API restrictions, we offer three secure methods to import your profile:
+                </p>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="flex items-start space-x-3">
+                    <FileText className="h-5 w-5 text-blue-600 mt-1" />
+                    <div>
+                      <p className="font-semibold">PDF Export</p>
+                      <p className="text-sm text-muted-foreground">Download your LinkedIn profile as PDF and upload</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Clipboard className="h-5 w-5 text-blue-600 mt-1" />
+                    <div>
+                      <p className="font-semibold">Copy & Paste</p>
+                      <p className="text-sm text-muted-foreground">Manually copy your profile sections</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Globe className="h-5 w-5 text-blue-600 mt-1" />
+                    <div>
+                      <p className="font-semibold">Web Scraping</p>
+                      <p className="text-sm text-muted-foreground">Provide your public profile URL</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -212,7 +257,7 @@ export default function Home() {
               {
                 step: "1",
                 title: "Import Your Profile",
-                description: "Connect your LinkedIn account or paste your profile URL to get started"
+                description: "Upload PDF, paste content, or provide your LinkedIn URL"
               },
               {
                 step: "2",
@@ -221,8 +266,8 @@ export default function Home() {
               },
               {
                 step: "3",
-                title: "Apply Changes & Track Results",
-                description: "Edit your profile with our WYSIWYG editor and watch your visibility soar"
+                title: "Edit & Export",
+                description: "Use our WYSIWYG editor to perfect your profile, then export for LinkedIn"
               }
             ].map((item, index) => (
               <motion.div
