@@ -11,7 +11,6 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { 
-  Briefcase,
   Target,
   Sparkles,
   AlertCircle,
@@ -19,8 +18,7 @@ import {
   Loader2,
   TrendingUp,
   Link as LinkIcon,
-  FileText,
-  ArrowRight
+  FileText
 } from "lucide-react"
 import { useProfileStore } from "@/lib/store/profile-store"
 

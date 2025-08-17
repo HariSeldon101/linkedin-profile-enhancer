@@ -7,7 +7,8 @@ const openai = new OpenAI({
 
 export async function POST(request: NextRequest) {
   try {
-    const { jobUrl, jobDescription, profile } = await request.json()
+    const { jobDescription, profile } = await request.json()
+    // jobUrl would be used for scraping if implemented
 
     // For demo purposes, we'll use the job description directly
     // In production, you'd scrape the job URL if provided

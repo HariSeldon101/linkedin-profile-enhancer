@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import * as cheerio from 'cheerio'
+// import * as cheerio from 'cheerio' // Would be used for actual scraping
 import OpenAI from 'openai'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-async function scrapeLinkedInProfile(url: string) {
+async function scrapeLinkedInProfile(_url: string) {
   try {
     // Note: Direct scraping of LinkedIn is against their ToS
     // This is a demonstration - in production, you'd need user consent
@@ -52,7 +52,7 @@ async function scrapeLinkedInProfile(url: string) {
   }
 }
 
-async function analyzeScrapedProfile(profileData: any) {
+async function analyzeScrapedProfile(profileData: Record<string, unknown>) {
   try {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",

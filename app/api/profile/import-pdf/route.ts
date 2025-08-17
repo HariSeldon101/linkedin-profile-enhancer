@@ -8,7 +8,7 @@ const openai = new OpenAI({
 
 // Note: PDF parsing would require additional setup with pdf-parse
 // For now, we'll simulate the parsing
-async function parsePDF(buffer: Buffer): Promise<string> {
+async function parsePDF(_buffer: Buffer): Promise<string> {
   // In production, you would use pdf-parse here
   // const pdfParse = require('pdf-parse')
   // const data = await pdfParse(buffer)

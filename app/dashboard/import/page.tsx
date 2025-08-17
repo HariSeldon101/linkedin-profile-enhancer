@@ -19,17 +19,14 @@ import {
   CheckCircle,
   AlertCircle,
   Loader2,
-  Download,
   ArrowRight
 } from "lucide-react"
 import { useDropzone } from "react-dropzone"
 import { useProfileStore } from "@/lib/store/profile-store"
-import { useUser } from "@/lib/hooks/use-user"
 
 export default function ImportProfilePage() {
   const router = useRouter()
-  const { user } = useUser()
-  const { setProfile, setLoading, setError } = useProfileStore()
+  const { setProfile } = useProfileStore()
   const [activeTab, setActiveTab] = useState("pdf")
   const [isProcessing, setIsProcessing] = useState(false)
   const [uploadStatus, setUploadStatus] = useState<'idle' | 'success' | 'error'>('idle')

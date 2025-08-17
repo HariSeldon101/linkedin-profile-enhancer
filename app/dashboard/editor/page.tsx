@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useEditor, EditorContent } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
 import Placeholder from "@tiptap/extension-placeholder"
@@ -23,14 +23,12 @@ import {
   Save,
   Sparkles,
   Download,
-  Copy,
   AlertCircle,
   CheckCircle,
   Loader2,
   User,
   Briefcase,
   GraduationCap,
-  Award,
   Code,
   FileText
 } from "lucide-react"
@@ -38,7 +36,7 @@ import { useProfileStore } from "@/lib/store/profile-store"
 import { motion } from "framer-motion"
 
 // Editor toolbar component
-function EditorToolbar({ editor }: { editor: any }) {
+function EditorToolbar({ editor }: { editor: ReturnType<typeof useEditor> }) {
   if (!editor) return null
 
   return (
@@ -395,7 +393,7 @@ export default function ProfileEditorPage() {
                     Add Experience
                   </Button>
                 </div>
-                {profileData.experience.map((exp: any, index: number) => (
+                {profileData.experience.map((exp: Record<string, unknown>, index: number) => (
                   <Card key={index}>
                     <CardHeader>
                       <CardTitle className="text-base">{exp.title}</CardTitle>

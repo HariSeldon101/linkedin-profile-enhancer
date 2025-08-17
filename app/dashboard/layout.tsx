@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { 
   Linkedin, 
   Home, 
-  FileText, 
   Briefcase, 
   BarChart3, 
   Settings, 
@@ -16,8 +15,7 @@ import {
   Menu,
   X,
   Upload,
-  Edit3,
-  Target
+  Edit3
 } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 
