@@ -5,10 +5,10 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Linkedin, Mail, Lock, User, ArrowLeft } from "lucide-react"
+import { AnimatedBackgroundSubtle } from "@/components/animated-background-subtle"
+import { Sparkles, Mail, Lock, User, ArrowLeft, Github, Chrome } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 
 export default function SignupPage() {
@@ -66,16 +66,15 @@ export default function SignupPage() {
     }
   }
 
-  const handleLinkedInSignup = async () => {
+  const handleSocialSignup = async (provider: 'google' | 'github') => {
     setLoading(true)
     setError(null)
 
     try {
       const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'linkedin_oidc',
+        provider: provider,
         options: {
           redirectTo: `${window.location.origin}/auth/callback`,
-          scopes: 'openid profile email',
         },
       })
 
@@ -87,125 +86,144 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted p-4">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
+      <AnimatedBackgroundSubtle />
+      
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md"
+        className="w-full max-w-md relative z-10"
       >
-        <Link href="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8">
+        <Link href="/" className="inline-flex items-center text-sm text-gray-400 hover:text-white mb-8 transition-colors">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to home
         </Link>
 
-        <Card>
-          <CardHeader>
-            <div className="flex items-center justify-center mb-4">
-              <Linkedin className="h-12 w-12 text-primary" />
+        <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl mb-4">
+              <Sparkles className="w-8 h-8 text-white" />
             </div>
-            <CardTitle className="text-2xl text-center">Create your account</CardTitle>
-            <CardDescription className="text-center">
+            <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              Create Your Account
+            </h1>
+            <p className="text-gray-400">
               Start optimizing your LinkedIn profile today
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSignup} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Full Name</Label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="John Doe"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="pl-10"
-                    required
-                  />
-                </div>
-              </div>
+            </p>
+          </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    id="password"
-                    type="password"
-                    placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10"
-                    required
-                    minLength={6}
-                  />
-                </div>
-                <p className="text-xs text-muted-foreground">Minimum 6 characters</p>
-              </div>
-
-              {error && (
-                <div className="text-sm text-destructive bg-destructive/10 p-3 rounded-md">
-                  {error}
-                </div>
-              )}
-
-              <Button type="submit" className="w-full" disabled={loading}>
-                {loading ? "Creating account..." : "Create account"}
-              </Button>
-            </form>
-
-            <div className="relative my-6">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">Or sign up with</span>
+          <form onSubmit={handleSignup} className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-gray-300">Full Name</Label>
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="John Doe"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:bg-white/10 focus:border-purple-500"
+                  required
+                />
               </div>
             </div>
 
-            <Button
-              variant="outline"
-              className="w-full"
-              onClick={handleLinkedInSignup}
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-gray-300">Email</Label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:bg-white/10 focus:border-purple-500"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-gray-300">Password</Label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:bg-white/10 focus:border-purple-500"
+                  required
+                  minLength={6}
+                />
+              </div>
+              <p className="text-xs text-gray-500">Minimum 6 characters</p>
+            </div>
+
+            {error && (
+              <div className="text-sm text-red-400 bg-red-400/10 p-3 rounded-lg border border-red-400/20">
+                {error}
+              </div>
+            )}
+
+            <Button 
+              type="submit" 
+              className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white" 
               disabled={loading}
             >
-              <Linkedin className="mr-2 h-4 w-4" />
-              LinkedIn (Recommended)
+              {loading ? "Creating account..." : "Create Account"}
             </Button>
+          </form>
 
-            <div className="mt-6 text-center text-sm">
-              <span className="text-muted-foreground">Already have an account? </span>
-              <Link href="/auth/login" className="text-primary hover:underline">
+          <div className="relative my-8">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-white/10" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-black/50 px-2 text-gray-400">Or sign up with</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <Button
+              variant="outline"
+              className="bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20"
+              onClick={() => handleSocialSignup('google')}
+              disabled={loading}
+            >
+              <Chrome className="mr-2 h-4 w-4" />
+              Google
+            </Button>
+            <Button
+              variant="outline"
+              className="bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20"
+              onClick={() => handleSocialSignup('github')}
+              disabled={loading}
+            >
+              <Github className="mr-2 h-4 w-4" />
+              GitHub
+            </Button>
+          </div>
+
+          <div className="mt-8 text-center space-y-2">
+            <div className="text-sm">
+              <span className="text-gray-400">Already have an account? </span>
+              <Link href="/auth/login" className="text-purple-400 hover:text-purple-300 transition-colors">
                 Sign in
               </Link>
             </div>
-
-            <div className="mt-4 text-center text-xs text-muted-foreground">
+            <div className="text-xs text-gray-500">
               By signing up, you agree to our{" "}
-              <Link href="/terms" className="underline">Terms</Link>
+              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms</Link>
               {" "}and{" "}
-              <Link href="/privacy" className="underline">Privacy Policy</Link>
+              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </motion.div>
     </div>
   )
