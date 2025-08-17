@@ -5,7 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, CheckCircle, Linkedin, Zap, Target, TrendingUp, Users, Brain, Shield, BarChart3 } from "lucide-react"
+import { ArrowRight, CheckCircle, Linkedin, Zap, Target, TrendingUp, Users, Brain, BarChart3 } from "lucide-react"
 
 const features = [
   {
@@ -262,7 +262,7 @@ export default function Home() {
               Success Stories
             </h2>
             <p className="text-lg text-muted-foreground">
-              Join thousands of professionals who've transformed their careers
+              Join thousands of professionals who&apos;ve transformed their careers
             </p>
           </motion.div>
 
@@ -286,7 +286,7 @@ export default function Home() {
                         <div className="text-sm text-muted-foreground">{testimonial.role}</div>
                       </div>
                     </div>
-                    <p className="text-muted-foreground italic">"{testimonial.content}"</p>
+                    <p className="text-muted-foreground italic">&ldquo;{testimonial.content}&rdquo;</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -308,7 +308,7 @@ export default function Home() {
               Choose Your Plan
             </h2>
             <p className="text-lg text-muted-foreground">
-              Start free, upgrade when you're ready
+              Start free, upgrade when you&apos;re ready
             </p>
           </motion.div>
 
@@ -389,7 +389,7 @@ export default function Home() {
               Ready to Transform Your Career?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join 50,000+ professionals who've already optimized their profiles
+              Join 50,000+ professionals who&apos;ve already optimized their profiles
             </p>
             <Link href="/auth/signup">
               <Button size="lg" variant="secondary" className="px-8">

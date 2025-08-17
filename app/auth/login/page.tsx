@@ -33,8 +33,8 @@ export default function LoginPage() {
       if (error) throw error
 
       router.push("/dashboard")
-    } catch (error: any) {
-      setError(error.message)
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'An error occurred')
     } finally {
       setLoading(false)
     }
@@ -54,8 +54,8 @@ export default function LoginPage() {
       })
 
       if (error) throw error
-    } catch (error: any) {
-      setError(error.message)
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'An error occurred')
       setLoading(false)
     }
   }
@@ -148,7 +148,7 @@ export default function LoginPage() {
             </Button>
 
             <div className="mt-6 text-center text-sm">
-              <span className="text-muted-foreground">Don't have an account? </span>
+              <span className="text-muted-foreground">Don&apos;t have an account? </span>
               <Link href="/auth/signup" className="text-primary hover:underline">
                 Sign up
               </Link>
