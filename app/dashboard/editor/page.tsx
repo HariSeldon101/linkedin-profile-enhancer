@@ -397,7 +397,7 @@ export default function ProfileEditorPage() {
                   <Card key={index}>
                     <CardHeader>
                       <CardTitle className="text-base">{exp.title}</CardTitle>
-                      <CardDescription>{exp.company} • {exp.duration}</CardDescription>
+                      <CardDescription>{exp.company} • {exp.startDate} - {exp.endDate || 'Present'}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm">{exp.description}</p>
