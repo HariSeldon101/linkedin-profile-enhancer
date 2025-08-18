@@ -102,37 +102,37 @@ export default function Home() {
       <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20 pointer-events-none" style={{ zIndex: 2 }} />
       
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 px-6 py-4">
+      <nav className="fixed top-0 w-full z-50 px-4 sm:px-6 py-3 sm:py-4">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 px-6 py-3">
+          <div className="bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/10 px-4 sm:px-6 py-2.5 sm:py-3">
             <div className="flex items-center justify-between">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-1.5 sm:space-x-2"
               >
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-white" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg sm:rounded-xl flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="text-base sm:text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                   ProfileBoost
                 </span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="flex items-center space-x-4"
+                className="flex items-center space-x-2 sm:space-x-4"
               >
                 <Link href="/auth/login">
                   <Button 
                     variant="ghost" 
-                    className="text-white/70 hover:text-white hover:bg-white/10"
+                    className="text-white/70 hover:text-white hover:bg-white/10 text-sm sm:text-base px-3 sm:px-4"
                   >
                     Sign In
                   </Button>
                 </Link>
                 <Link href="/auth/signup">
-                  <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white border-0">
+                  <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white border-0 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-2.5">
                     Get Started
                   </Button>
                 </Link>
@@ -143,7 +143,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6">
+      <section className="relative pt-32 sm:pt-40 pb-12 sm:pb-20 px-4 sm:px-6">
         <motion.div 
           style={{ opacity }}
           className="max-w-7xl mx-auto text-center relative z-10"
@@ -154,12 +154,12 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-8">
-              <Star className="w-4 h-4 text-purple-400 mr-2" />
-              <span className="text-sm text-purple-300">AI-Powered LinkedIn Optimization</span>
+            <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4 sm:mb-8">
+              <Star className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400 mr-1.5 sm:mr-2" />
+              <span className="text-xs sm:text-sm text-purple-300">AI-Powered LinkedIn Optimization</span>
             </div>
 
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
                 Transform Your
               </span>
@@ -169,43 +169,43 @@ export default function Home() {
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl md:text-2xl text-gray-400 mb-6 sm:mb-8 max-w-3xl mx-auto px-4 sm:px-0">
               AI-powered optimization that gets you noticed by recruiters and lands you your dream job
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-16 px-4 sm:px-0">
               <Link href="/auth/signup">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-6 text-lg rounded-xl"
+                  className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg rounded-xl w-full sm:w-auto"
                 >
                   Start Free Trial
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </Link>
               <Button 
                 size="lg" 
                 variant="ghost"
-                className="border border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
+                className="border border-white/20 bg-white/5 text-white hover:bg-white/10 hover:border-white/30 px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg rounded-xl backdrop-blur-sm w-full sm:w-auto"
               >
                 Watch Demo
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto px-4 sm:px-0">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6"
+                  className="bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-6"
                 >
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-2">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
